@@ -31,9 +31,8 @@ public abstract class Bag {
      * its contents.)
      */
     public Bag(String col, int capac){
-        numberOfContents = 0;
-        capacity = capac;
-        color = col;
+        this.capacity = capac;
+        this.color = col;
     }
 
     /*
@@ -44,15 +43,15 @@ public abstract class Bag {
      *           - getCapacity
      */
     public String getColor(){
-        return color;
+        return this.color;
     }
 
     public int getNumberofContents(){
-        return numberOfContents;
+        return this.numberOfContents;
     }
 
     public int getCapacity(){
-        return capacity;
+        return this.capacity;
     }
 
 
@@ -78,10 +77,10 @@ public abstract class Bag {
      *       and false otherwise.
      */
 
-    public boolean addItem(String item){
-        if(this.numberOfContents <= this.capacity){
-            numberOfContents += 1;
-            contents.add(item);
+    public Boolean addItem(String item){
+        if(this.numberOfContents < this.capacity){
+            this.numberOfContents += 1;
+            this.contents.add(item);
             return true;
         }
 
@@ -102,9 +101,12 @@ public abstract class Bag {
      * @return
      */
 
-
-
-
+    public String popItem(){
+        String item = this.contents.get(this.contents.size() - 1);
+        this.contents.remove(this.contents.size() - 1);
+        this.numberOfContents -= 1;
+        return item;
+    }
 
     /**
      * Increase this bag's capacity by n.
@@ -113,7 +115,7 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
-
+        this.capacity += n;
     }
 
     /**
