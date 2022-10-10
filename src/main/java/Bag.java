@@ -46,7 +46,7 @@ public abstract class Bag {
         return this.color;
     }
 
-    public int getNumberofContents(){
+    public int getNumberOfContents(){
         return this.numberOfContents;
     }
 
